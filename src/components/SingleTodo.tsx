@@ -1,5 +1,7 @@
 import React from 'react'
 import { Todo } from '../model';
+import { Checkbox } from 'antd';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface Props {
   todo: Todo;
@@ -10,8 +12,8 @@ interface Props {
 const SingleTodo = ({todo, todos, setTodos}: Props) => {
   return (
     <form className="single-todo">
-      <span className="single-text">
-        {todo.todo}
+      <span className="single-todo-text">
+      <Checkbox>{todo.todo}</Checkbox>;
       </span>
     </form>
   )
