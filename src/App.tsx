@@ -13,9 +13,7 @@ const App : React.FC = () => {
 
   function handleAdd(e: React.FormEvent): any {
     e.preventDefault();
-    console.log("I am called uwu")
-    console.log(todo)
-    console.log(todos)
+    
     if(todo) {
       setTodos([...todos, {id: Date.now(), todo, isDone: false}]);
       setTodo("");
