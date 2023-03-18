@@ -4,6 +4,7 @@ import InputField from './components/InputField';
 import { useState } from 'react';
 import { Todo } from './model';
 import TodoList from './components/TodoList';
+import Nav from './nav/Nav';
 
 
 const App : React.FC = () => {
@@ -23,11 +24,9 @@ const App : React.FC = () => {
 
   return (
     <div className="App">
+      <Nav />
       <div className="heading">taskify</div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-      {/* {todos.map((t) => (
-        <li>{t.todo}</li>
-      ))} */}
       <TodoList todos={todos} setTodos={setTodos}/>
     </div>
     

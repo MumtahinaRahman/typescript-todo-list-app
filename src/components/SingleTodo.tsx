@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Todo } from '../model';
 import { Checkbox } from 'antd';
+import { Card } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-//import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-//import todoList from './TodoList';
 
 interface Props {
   todo: Todo;
@@ -41,18 +40,21 @@ const SingleTodo = ({todo, todos, setTodos}: Props) => {
   }
 
   return (
-    <form className="single-todo" onSubmit={(e)=>handleEdit(e, todo.id)}>
-      <Checkbox  onChange={() => handleDone(todo.id)} />
-      {edit ? (<input value={editTodo} onChange={(e) => setEditTodo(e.target.value)} />) : 
-      todo.isDone ? (
-        <s className="single-todo-text"> {todo.todo} </s>
-      )
-       : (
-        <span className="single-todo-text"> {todo.todo} </span>
-      )}
-      <DeleteOutlined onClick={() => handleDelete(todo.id)} />
-      <EditOutlined onClick={(e) => handleEdit(e, todo.id)} />
-    </form>
+    <Card style={{ width: 200, margin: 4}}>
+      <form className="single-todo" onSubmit={(e)=>handleEdit(e, todo.id)}>
+        <Checkbox  onChange={() => handleDone(todo.id)} />
+        {edit ? (<input value={editTodo} onChange={(e) => setEditTodo(e.target.value)} />) : 
+        todo.isDone ? (
+          <s className="single-todo-text"> {todo.todo} </s>
+        )
+        : (
+          <span className="single-todo-text"> {todo.todo} </span>
+        )}
+        <DeleteOutlined onClick={() => handleDelete(todo.id)} />
+        <EditOutlined onClick={(e) => handleEdit(e, todo.id)} />
+      </form>
+    </Card>
+    
   )
 }
 
